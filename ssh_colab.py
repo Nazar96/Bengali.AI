@@ -36,8 +36,7 @@ print("Root password: {}".format(password))
 
 #Get public address
 bashCommand = """
-! curl -s http://localhost:4040/api/tunnels | python3 -c \
-    "import sys, json; print(json.load(sys.stdin)['tunnels'][0]['public_url'])"
+curl -s http://localhost:4040/api/tunnels | python3 -c "import sys, json; print(json.load(sys.stdin)['tunnels'][0]['public_url'])"
 """
 process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
 output, error = process.communicate()
